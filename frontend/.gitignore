@@ -1,0 +1,6 @@
+target/
+.idea/
+.vscode/
+*.iml
+uploads/
+application-local.properties
