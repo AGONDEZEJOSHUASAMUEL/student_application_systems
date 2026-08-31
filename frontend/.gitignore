@@ -1,6 +1,3 @@
-target/
-.idea/
+.DS_Store
 .vscode/
-*.iml
-uploads/
-application-local.properties
+node_modules/
