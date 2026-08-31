@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Application System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🎓 Student Application System</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#apply">Apply</a>
+      <a href="#status">Check Status</a>
+      <a href="#admin">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div>
+        <span class="badge">Online Admissions</span>
+        <h1>Apply for your next academic journey.</h1>
+        <p>Submit a student application, track its progress, and manage applications from the admin dashboard.</p>
+        <a class="btn" href="#apply">Start Application</a>
+      </div>
+      <div class="hero-card">
+        <div class="stat"><strong id="totalApplications">0</strong><span>Applications</span></div>
+        <div class="stat"><strong id="pendingApplications">0</strong><span>Pending</span></div>
+        <div class="stat"><strong id="acceptedApplications">0</strong><span>Accepted</span></div>
+      </div>
+    </section>
+
+    <section id="apply" class="section">
+      <div class="section-heading">
+        <h2>Student Application</h2>
+        <p>Complete all required information and submit your application.</p>
+      </div>
+      <form id="applicationForm" class="card form-grid">
+        <h3 class="full">Personal Information</h3>
+        <label>First Name *<input name="firstName" required></label>
+        <label>Last Name *<input name="lastName" required></label>
+        <label>Date of Birth *<input type="date" name="dob" required></label>
+        <label>Gender *
+          <select name="gender" required><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select>
+        </label>
+        <label>Email *<input type="email" name="email" required></label>
+        <label>Phone *<input name="phone" required></label>
+        <label class="full">Address<input name="address"></label>
+
+        <h3 class="full">Academic Information</h3>
+        <label>Previous School *<input name="school" required></label>
+        <label>Year Completed *<input type="number" name="yearCompleted" min="1950" max="2100" required></label>
+        <label>Program *
+          <select name="program" required>
+            <option value="">Select program</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Business Administration</option>
+            <option>Accounting and Finance</option>
+            <option>Agricultural Science</option>
+          </select>
+        </label>
+        <label>Intake *
+          <select name="intake" required><option value="">Select intake</option><option>January</option><option>May</option><option>August</option></select>
+        </label>
+        <label class="full">Additional Information<textarea name="additionalInfo" rows="4"></textarea></label>
+        <div class="full notice">Your application will initially be marked <strong>Pending</strong>. The demo stores data in this browser using localStorage.</div>
+        <button class="btn full" type="submit">Submit Application</button>
+      </form>
+    </section>
+
+    <section id="status" class="section alt">
+      <div class="section-heading"><h2>Check Application Status</h2><p>Enter your application ID or email address.</p></div>
+      <div class="card status-box">
+        <input id="statusQuery" placeholder="e.g. APP-2026-0001 or email@example.com">
+        <button class="btn" id="statusBtn">Check Status</button>
+        <div id="statusResult"></div>
+      </div>
+    </section>
+
+    <section id="admin" class="section">
+      <div class="section-heading">
+        <h2>Admin Dashboard</h2>
+        <p>Demo administration area for managing submitted applications.</p>
+      </div>
+      <div class="toolbar">
+        <input id="searchInput" placeholder="Search by name, ID, email or program">
+        <select id="filterStatus"><option>All</option><option>Pending</option><option>Under Review</option><option>Accepted</option><option>Rejected</option></select>
+        <button class="btn secondary" id="clearAll">Clear Demo Data</button>
+      </div>
+      <div class="table-wrap card">
+        <table>
+          <thead><tr><th>ID</th><th>Student</th><th>Program</th><th>Email</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="applicationTable"></tbody>
+        </table>
+        <p id="emptyTable" class="empty">No applications found.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>Student Application System • Built with HTML, CSS and JavaScript</footer>
+  <div id="toast" class="toast"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
